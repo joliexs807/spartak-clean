@@ -43,12 +43,12 @@ h2 { margin-top: 30px; }
   color: #fff;
   font-size: 15px;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
 }
 
 .btn:hover { transform: scale(1.05); }
 
-.btn.red {
+.btn.selected {
   background: #e30613;
   animation: glow 1.6s infinite;
 }
@@ -77,4 +77,4 @@ table th, table td {
 table tr:nth-child(odd) { background: #1e1e1e; }
 table tr:nth-child(even){ background:#292929; }
 
-.admin-btn { position: fixed; bottom: 20px; right: 20px; background: #555; color: #fff; padding: 10px 15px; border-radius: 8px; cursor:pointer; }
+.admin-btn { position: fixed; bottom: 20px; right: 20px; background: #555; color: #fff; padding: 10px 15px; border-radius:8px; cursor:pointer; }
