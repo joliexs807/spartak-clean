@@ -30,6 +30,31 @@ saveNameBtn.onclick = () => {
 
 showWelcome();
 
+// --- Новости ---
+const newsPanel = document.getElementById("newsPanel");
+
+const newsData = [
+  {text:"Спартак выиграл последний матч!", important:true},
+  {text:"Трансферный рынок открыт."},
+  {text:"Билеты на следующий матч распроданы!", important:true},
+  {text:"Тренировка команды сегодня в 18:00."}
+];
+
+function renderNews() {
+  newsPanel.innerHTML="";
+  newsData.forEach(n=>{
+    const div = document.createElement("div");
+    div.textContent = n.text;
+    div.className="news-item";
+    if(n.important) div.classList.add("important");
+    newsPanel.appendChild(div);
+  });
+}
+
+// Автообновление каждые 30 секунд
+renderNews();
+setInterval(renderNews, 30000);
+
 // --- Данные матчей ---
 const matchesData = [
   {id:1, team1:"Спартак", team2:"ЦСКА"},
