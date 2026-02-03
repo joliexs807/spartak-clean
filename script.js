@@ -136,11 +136,11 @@ renderLeaderboard();
 const modal = document.createElement("div");
 modal.id="adminModal";
 modal.style.display="none";
-modal.innerHTML=`<div class="card">
+modal.innerHTML=`<div class="card" style="text-align:center; max-width:300px; animation:cardGlow 1.6s infinite;">
 <h3>Админ панель</h3>
-<input type="password" id="adminPass" placeholder="Пароль">
-<button id="loginAdmin" class="btn">Войти</button>
-<div id="adminControls" style="margin-top:15px; display:none;">
+<input type="password" id="adminPass" placeholder="Пароль" style="width:80%; padding:8px; margin:10px 0;">
+<button id="loginAdmin" class="btn" style="margin-bottom:10px;">Войти</button>
+<div id="adminControls" style="display:none;">
   <button id="resetMatches" class="btn" style="margin-bottom:8px;">Сброс всех прогнозов</button>
   <button id="resetLeaderboard" class="btn">Сброс таблицы лидеров</button>
 </div>
@@ -156,7 +156,8 @@ document.getElementById("loginAdmin").onclick = ()=>{
   const pass = document.getElementById("adminPass").value;
   if(pass==="admin123"){
     document.getElementById("adminControls").style.display="block";
-    alert("Вы вошли как админ. Теперь можно сбросить прогнозы и таблицу лидеров.");
+    modal.querySelector("h3").textContent="Вы вошли как админ ✅";
+    alert("Вы вошли как админ. Теперь можете сбросить прогнозы и таблицу лидеров через кнопки ниже.");
   } else {
     alert("Неверный пароль");
   }
