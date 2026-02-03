@@ -15,12 +15,15 @@ h2 { margin-top: 30px; }
 .subtitle { opacity: 0.8; margin-bottom: 15px; }
 
 .card {
-  max-width: 320px;
+  max-width: 350px;
   margin: 10px auto;
   padding: 20px;
   background: #151515;
   border-radius: 16px;
   box-shadow: 0 0 20px rgba(227,6,19,0.25);
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.4;
   transition: opacity 0.5s;
 }
 
@@ -61,6 +64,14 @@ h2 { margin-top: 30px; }
 
 #welcomePanel { margin-bottom: 20px; font-size: 18px; font-weight: 600; }
 
+#newsPanel .news-item { margin-bottom: 8px; }
+
+#newsPanel .news-item.important {
+  color: #e30613;
+  font-weight: 600;
+  animation: glow 1.6s infinite;
+}
+
 table {
   width: 300px;
   margin: 20px auto;
@@ -78,3 +89,12 @@ table tr:nth-child(odd) { background: #1e1e1e; }
 table tr:nth-child(even){ background:#292929; }
 
 .admin-btn { position: fixed; bottom: 20px; right: 20px; background: #555; color: #fff; padding: 10px 15px; border-radius:8px; cursor:pointer; }
+
+#adminModal {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  display:flex; justify-content:center; align-items:center;
+  background: rgba(0,0,0,0.7);
+  z-index: 999;
+}
