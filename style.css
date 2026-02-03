@@ -10,6 +10,7 @@ body {
 }
 
 h1 { margin-bottom: 25px; letter-spacing: 2px; }
+h2 { margin-top: 30px; }
 
 .subtitle { opacity: 0.8; margin-bottom: 15px; }
 
@@ -58,8 +59,22 @@ h1 { margin-bottom: 25px; letter-spacing: 2px; }
   100% { box-shadow: 0 0 6px rgba(227,6,19,0.5); }
 }
 
-#welcomePanel {
-  margin-bottom: 20px;
-  font-size: 18px;
-  font-weight: 600;
+#welcomePanel { margin-bottom: 20px; font-size: 18px; font-weight: 600; }
+
+table {
+  width: 300px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  font-size: 14px;
 }
+
+table th, table td {
+  border: 1px solid #e30613;
+  padding: 6px;
+  text-align: center;
+}
+
+table tr:nth-child(odd) { background: #1e1e1e; }
+table tr:nth-child(even){ background:#292929; }
+
+.admin-btn { position: fixed; bottom: 20px; right: 20px; background: #555; color: #fff; padding: 10px 15px; border-radius: 8px; cursor:pointer; }
