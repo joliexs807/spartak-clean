@@ -8,25 +8,25 @@
 </head>
 <body>
 
-  <h1>⚽ СПАРТАК</h1>
+<h1>⚽ СПАРТАК</h1>
 
-  <div id="welcomePanel"></div>
+<div id="welcomePanel"></div>
 
-  <div id="nameForm" class="card">
-    <p class="subtitle">Введите своё имя:</p>
-    <input type="text" id="username" placeholder="Ваше имя">
-    <button id="saveName" class="btn red">Сохранить</button>
-  </div>
+<div id="nameForm" class="card">
+  <p class="subtitle">Введите своё имя:</p>
+  <input type="text" id="username" placeholder="Ваше имя">
+  <button id="saveName" class="btn red">Сохранить</button>
+</div>
 
-  <div class="card match">
-    <div class="teams">Спартак — ЦСКА</div>
-    <div class="buttons">
-      <button class="btn red">П1</button>
-      <button class="btn">Н</button>
-      <button class="btn">П2</button>
-    </div>
-  </div>
+<div id="matches"></div>
 
-  <script src="script.js"></script>
+<h2>Таблица лидеров</h2>
+<table id="leaderboard">
+  <tr><th>Имя</th><th>Очки</th></tr>
+</table>
+
+<button class="admin-btn" id="openAdmin">Админ</button>
+
+<script src="script.js"></script>
 </body>
 </html>
