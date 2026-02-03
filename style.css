@@ -27,15 +27,37 @@ h2 { margin-top: 30px; }
   transition: opacity 0.5s;
 }
 
-.match { margin-top: 15px; }
+/* --- Новости --- */
+#newsPanel .news-item { margin-bottom: 8px; }
 
-.teams { margin-bottom: 15px; font-weight: 600; }
-
-.buttons {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
+#newsPanel .news-item.important {
+  color: #e30613;
+  font-weight: 600;
+  animation: glow 1.6s infinite;
 }
+
+/* --- Мини-карточки матчей --- */
+.card.match {
+  max-width: 280px;
+  margin: 15px auto;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(227,6,19,0.2);
+  transition: box-shadow 0.4s, transform 0.3s;
+}
+
+.card.match.selected {
+  animation: cardGlow 1.6s infinite;
+}
+
+@keyframes cardGlow {
+  0%   { box-shadow: 0 0 8px rgba(227,6,19,0.5); transform: scale(1); }
+  50%  { box-shadow: 0 0 18px rgba(227,6,19,1); transform: scale(1.03); }
+  100% { box-shadow: 0 0 8px rgba(227,6,19,0.5); transform: scale(1); }
+}
+
+/* --- Кнопки --- */
+.buttons { display: flex; justify-content: space-between; gap: 10px; }
 
 .btn {
   flex: 1;
@@ -63,14 +85,6 @@ h2 { margin-top: 30px; }
 }
 
 #welcomePanel { margin-bottom: 20px; font-size: 18px; font-weight: 600; }
-
-#newsPanel .news-item { margin-bottom: 8px; }
-
-#newsPanel .news-item.important {
-  color: #e30613;
-  font-weight: 600;
-  animation: glow 1.6s infinite;
-}
 
 table {
   width: 300px;
