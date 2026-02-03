@@ -51,7 +51,6 @@ function renderNews() {
   });
 }
 
-// Автообновление каждые 30 секунд
 renderNews();
 setInterval(renderNews, 30000);
 
@@ -80,8 +79,12 @@ function renderMatches() {
       btn.textContent = choice;
       btn.className = "btn";
 
-      if(localStorage.getItem(`match_${match.id}`)) btn.disabled = true;
-      if(localStorage.getItem(`match_${match.id}`) === choice) btn.classList.add("selected");
+      const savedChoice = localStorage.getItem(`match_${match.id}`);
+      if(savedChoice) btn.disabled = true;
+      if(savedChoice === choice) {
+        btn.classList.add("selected");
+        div.classList.add("selected");
+      }
 
       btn.onclick = ()=>{
         if(!localStorage.getItem(`match_${match.id}`)) {
@@ -90,6 +93,7 @@ function renderMatches() {
             b.disabled=true;
             if(b===btn) b.classList.add("selected");
           });
+          div.classList.add("selected");
           updateLeaderboard(username);
         }
       }
