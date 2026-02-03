@@ -32,7 +32,6 @@ showWelcome();
 
 // --- Новости ---
 const newsPanel = document.getElementById("newsPanel");
-
 const newsData = [
   {text:"Спартак выиграл последний матч!", important:true},
   {text:"Трансферный рынок открыт."},
@@ -50,7 +49,6 @@ function renderNews() {
     newsPanel.appendChild(div);
   });
 }
-
 renderNews();
 setInterval(renderNews, 30000);
 
@@ -139,20 +137,42 @@ const modal = document.createElement("div");
 modal.id="adminModal";
 modal.style.display="none";
 modal.innerHTML=`<div class="card">
-<h3>Админ вход</h3>
+<h3>Админ панель</h3>
 <input type="password" id="adminPass" placeholder="Пароль">
 <button id="loginAdmin" class="btn">Войти</button>
+<div id="adminControls" style="margin-top:15px; display:none;">
+  <button id="resetMatches" class="btn" style="margin-bottom:8px;">Сброс всех прогнозов</button>
+  <button id="resetLeaderboard" class="btn">Сброс таблицы лидеров</button>
+</div>
 </div>`;
 document.body.appendChild(modal);
 
-document.getElementById("openAdmin").onclick=()=>modal.style.display="flex";
-modal.onclick=e=>{if(e.target===modal) modal.style.display="none";};
+const openAdmin = document.getElementById("openAdmin");
+openAdmin.onclick = ()=>modal.style.display="flex";
 
-document.getElementById("loginAdmin").onclick=()=>{
-  const pass=document.getElementById("adminPass").value;
+modal.onclick = e => { if(e.target===modal) modal.style.display="none"; };
+
+document.getElementById("loginAdmin").onclick = ()=>{
+  const pass = document.getElementById("adminPass").value;
   if(pass==="admin123"){
-    localStorage.setItem("isAdmin","true");
-    alert("Вы вошли как админ. Для сброса всех прогнозов используйте DevTools → localStorage → удалить ключи match_ и leaderboard");
-    modal.style.display="none";
-  } else alert("Неверный пароль");
-};
+    document.getElementById("adminControls").style.display="block";
+    alert("Вы вошли как админ. Теперь можно сбросить прогнозы и таблицу лидеров.");
+  } else {
+    alert("Неверный пароль");
+  }
+}
+
+// --- Кнопки админа ---
+document.getElementById("resetMatches").onclick = ()=>{
+  Object.keys(localStorage).forEach(k=>{
+    if(k.startsWith("match_")) localStorage.removeItem(k);
+  });
+  renderMatches();
+  alert("Все прогнозы сброшены!");
+}
+
+document.getElementById("resetLeaderboard").onclick = ()=>{
+  localStorage.removeItem("leaderboard");
+  renderLeaderboard();
+  alert("Таблица лидеров сброшена!");
+}
